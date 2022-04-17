@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 
 router.get('/all', (req, res) => {
     Resource.find({})
-    .then((resources) => res.send(resources))
+    .then((resources) => res.render('show',{resources}))
     .catch(console.error)
 })
 
@@ -32,15 +32,17 @@ router.get('/science', (req, res) => {
     .catch(console.error)   
 })
 
+
+router.get('/new', (req, res) => {
+    res.render('new')
+})
+
 router.get('/:keyword', (req, res) => {
     Resource.find({keywords: req.params.keyword})
     .then(() => res.render('search.ejs'))
     .catch(console.error)
 })
 
-// router.get('/new', (req, res) => {
-//     res.render('new')
-// })
 
 router.post('/new', (req, res) => {
     Resource.create(req.body)

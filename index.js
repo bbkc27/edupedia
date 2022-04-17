@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const express=require('express')
+const methodOverride = require('method-override')
 const ejsLayouts = require("express-ejs-layouts")
 
 const resourceController = require('./controllers/resourceControllers')
@@ -8,12 +9,13 @@ const resourceController = require('./controllers/resourceControllers')
 require('ejs')
 
 const app = express()
+app.use(express.static('public'));
 
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-
+app.use(methodOverride("_method"));
 
 app.use(resourceController)
 
