@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 
 const mongoURI = 
-"mongodb+srv://briana_c:0820@cluster0.3lrnm.mongodb.net/edupedia-dev?retryWrites=true&w=majority"
+""
 
 // process.env.NODE_ENV === 'production'
 // ? process.env.DB_URL

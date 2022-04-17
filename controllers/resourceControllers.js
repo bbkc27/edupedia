@@ -4,6 +4,10 @@ const Resource = require('../models/resource-model')
 
 const router = express.Router()
 
+router.get('/', (req, res) => {
+    res.render('index')
+})
+
 router.get('/all', (req, res) => {
     Resource.find({})
     .then((resources) => res.send(resources))
@@ -30,7 +34,7 @@ router.get('/science', (req, res) => {
 
 router.get('/:keyword', (req, res) => {
     Resource.find({keywords: req.params.keyword})
-    .then((resources) => res.send(resources))
+    .then(() => res.render('search.ejs'))
     .catch(console.error)
 })
 
