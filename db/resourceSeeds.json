@@ -1,0 +1,38 @@
+[
+    {
+        "name": "NewsELA",
+        "url": "https://newsela.com/",
+        "subject": ["ela"],
+        "keywords": ["reading", "english", "writing", "elementary", "middle school", "high school"]
+    },
+    {
+        "name": "ABCmouse",
+        "url": "abcmouse.com",
+        "subject": ["ela", "math", "science"],
+        "keyworks": ["preschool", "prek", "art", "reading", "language arts"]
+    },
+    {
+        "name": "Common Lit",
+        "url": "https://commonlit.org",
+        "subject": ["ela"],
+        "keywords": ["reading", "writing", "english", "middle school", "high school"]
+    },
+    {
+        "name": "Khan Academy",
+        "url": "https://khanacademy.org",
+        "subject": ["ela", "math", "science"],
+        "keywords": ["elementary", "english", "middle school", "high school", "reading", "writing", "ap tests", "sat", "foreign language"]
+    },
+    {
+        "name": "IXL",
+        "url": "https://ixl.com",
+        "subject": ["math", "ela", "science"],
+        "keywords": ["elementary", "middle school", "high school", "english", "math", "reading", "writing"]
+    },
+    {
+        "name": "MathGames",
+        "url": "https://mathgames.com",
+        "subject": ["math"],
+        "keywords": ["math", "elementary", "middle school"]
+    }
+]
