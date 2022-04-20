@@ -16,19 +16,19 @@ router.get('/all', (req, res) => {
 
 router.get('/ela', (req, res) => {
     Resource.find({subject: "ela"})
-    .then((ela) => res.send(ela))
+    .then((resources) => res.render('show', {resources}))
     .catch(console.error)
 })
 
 router.get('/math', (req, res) => {
     Resource.find({subject: "math"})
-    .then((math) => res.send(math))
+    .then((resources) => res.render('show', {resources}))
     .catch(console.error)
 })
 
 router.get('/science', (req, res) => {
     Resource.find({subject: "science"})
-    .then((science) => res.send(science))
+    .then((resources) => res.render('show', {resources}))    
     .catch(console.error)   
 })
 
@@ -38,11 +38,19 @@ router.get('/new', (req, res) => {
 })
 
 router.get('/:keyword', (req, res) => {
-    Resource.find({keywords: req.params.keyword})
-    .then(() => res.render('search.ejs'))
+    Resource.find({keywords: req.query.keywords})
+    .then((resources) => res.render('show', {resources}))
     .catch(console.error)
 })
 
+router.get('/:id/edit', (req, res) => {
+    const id = req.params.id;
+    Resource.findById(id)
+    .then((resource) => {
+        res.render('edit', resource)
+    })
+    .catch(console.error);
+})
 
 router.post('/new', (req, res) => {
     Resource.create(req.body)

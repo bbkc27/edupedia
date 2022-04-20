@@ -1,9 +1,22 @@
 body{
     font-family: 'Poppins', sans-serif;
+    background-color: rgb(205, 184, 205);
+    width: 105vw;
+    display: flex;
+    overflow: visible;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: 50px;
 }
 
 .font{
-    font-size: 16px;
+    font-size: 24px;
+    font-weight: bolder;
+}
+.font2{
+    font-size: 22px;
 }
 
 h1{
@@ -11,12 +24,27 @@ h1{
 }
 
 .header{
-    background-color: rgb(151, 72, 151);
-    color: white;
+    background-color: rgb(131, 72, 151);
     border: none;
-    width: 100%;
+    color: white;
+    width: 105vw;
     display: grid;
     text-align: center;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.footer{
+    background-color: rgb(131, 72, 151);
+    color: white;
+    position: fixed;
+    bottom:0;
+    height: 8vh;
+    width: 105vw;
+    text-align: center;
+    padding-top: 1%;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 .button{
@@ -56,9 +84,30 @@ span{
     padding: 2%;
 }
 
+.links{
+    display: inline-flex;
+}
+
+.home{
+    display: flex;
+    flex-direction:column;
+}
+/* .container{
+    background-color: rgb(205, 184, 205);
+    width: 105vw;
+    min-height: 525px;
+    display: flex;
+    overflow: visible;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: 50px;
+} */
+
 .cards{
     font-size: 16px;
-    padding: 10px;
+    padding: 20px;
     margin-left: 15%;
     margin-right: 15%;
     margin-bottom: 1%;
@@ -67,19 +116,38 @@ span{
     justify-content: space-between;
 }
 
+
+.homeSearch{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0px;
+}
+
+.input{
+    width: 225px;
+}
+
+.bottomInfo{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 10%;
+    position: relative;
+}
+
 .inputParent{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-top: none;
 }
 
 .checklistItem{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
-
-.links{
-    display: inline-flex;
 }
