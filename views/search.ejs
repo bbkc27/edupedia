@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css" href="/style.css" />
+
+<div class="container">
+
+    <h1> Resources</h1>
+    <h4 class="inputParent">Click on the resource name to see more information.</h4>
+    <% resources.forEach(resource => { %>
+
+        <div class="cards">
+
+            <div class="font"> 
+             <a class="button2" href="/<%=resource.id%>/show"> <%=resource.name %> </a>
+            </div>
+            
+            <div class="links">
+                <a class="pageButton" href="/<%=resource.id%>/edit">Edit</a>
+                <form action="/<%= resource.id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete" class="pageButton" />
+            
+                  </form>
+            </div>
+        </div>
+    
+    <% }) %>
+
+</div>

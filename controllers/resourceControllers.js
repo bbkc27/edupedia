@@ -10,25 +10,25 @@ router.get('/', (req, res) => {
 
 router.get('/all', (req, res) => {
     Resource.find({})
-    .then((resources) => res.render('show',{resources}))
+    .then((resources) => res.render('search',{resources}))
     .catch(console.error)
 })
 
 router.get('/ela', (req, res) => {
     Resource.find({subject: "ela"})
-    .then((resources) => res.render('show', {resources}))
+    .then((resources) => res.render('search', {resources}))
     .catch(console.error)
 })
 
 router.get('/math', (req, res) => {
     Resource.find({subject: "math"})
-    .then((resources) => res.render('show', {resources}))
+    .then((resources) => res.render('search', {resources}))
     .catch(console.error)
 })
 
 router.get('/science', (req, res) => {
     Resource.find({subject: "science"})
-    .then((resources) => res.render('show', {resources}))    
+    .then((resources) => res.render('search', {resources}))    
     .catch(console.error)   
 })
 
@@ -39,7 +39,16 @@ router.get('/new', (req, res) => {
 
 router.get('/:keyword', (req, res) => {
     Resource.find({keywords: req.query.keywords})
-    .then((resources) => res.render('show', {resources}))
+    .then((resources) => res.render('search', {resources}))
+    .catch(console.error)
+})
+
+router.get('/:id/show', (req, res) => {
+    const id = req.params.id
+    Resource.findById(id)
+    .then((resource) => {
+        res.render('show', resource)
+    })
     .catch(console.error)
 })
 

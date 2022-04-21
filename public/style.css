@@ -1,6 +1,6 @@
 body{
     font-family: 'Poppins', sans-serif;
-    background-color: rgb(205, 184, 205);
+    background-color: rgb(232, 182, 232);
     width: 105vw;
     display: flex;
     overflow: visible;
@@ -51,6 +51,11 @@ h1{
     text-decoration: none;
     color: white;
     font-weight: bold;
+}
+
+.button2{
+    text-decoration: none;
+    color:black;
 }
 
 .pageButton{
