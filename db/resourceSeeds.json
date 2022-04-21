@@ -3,36 +3,42 @@
         "name": "NewsELA",
         "url": "https://newsela.com/",
         "subject": ["ela"],
-        "keywords": ["reading", "english", "writing", "elementary", "middle school", "high school"]
+        "keywords": ["reading", "english", "writing", "elementary", "middle school", "high school"],
+        "favorite": false
     },
     {
         "name": "ABCmouse",
         "url": "abcmouse.com",
         "subject": ["ela", "math", "science"],
-        "keywords": ["preschool", "prek", "art", "reading", "language arts"]
+        "keywords": ["preschool", "prek", "art", "reading", "language arts"],
+        "favorite": false
     },
     {
         "name": "Common Lit",
         "url": "https://commonlit.org",
         "subject": ["ela"],
-        "keywords": ["reading", "writing", "english", "middle school", "high school"]
+        "keywords": ["reading", "writing", "english", "middle school", "high school"],
+        "favorite": false
     },
     {
         "name": "Khan Academy",
         "url": "https://khanacademy.org",
         "subject": ["ela", "math", "science"],
-        "keywords": ["elementary", "english", "middle school", "high school", "reading", "writing", "ap tests", "sat", "foreign language"]
+        "keywords": ["elementary", "english", "middle school", "high school", "reading", "writing", "ap tests", "sat", "foreign language"],
+        "favorite": false
     },
     {
         "name": "IXL",
         "url": "https://ixl.com",
         "subject": ["math", "ela", "science"],
-        "keywords": ["elementary", "middle school", "high school", "english", "math", "reading", "writing"]
+        "keywords": ["elementary", "middle school", "high school", "english", "math", "reading", "writing"],
+        "favorite": false
     },
     {
         "name": "MathGames",
         "url": "https://mathgames.com",
         "subject": ["math"],
-        "keywords": ["math", "elementary", "middle school"]
+        "keywords": ["math", "elementary", "middle school"],
+        "favorite": false
     }
 ]

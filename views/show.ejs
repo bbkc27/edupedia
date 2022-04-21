@@ -4,13 +4,20 @@
 
     <div class="inputParent">
        
+        <div class="links headerButtons">
+                <a class="pageButton" href="/<%=id%>/edit">Edit</a>
+                <form action="/<%= id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete" class="pageButton" />
+            
+                  </form>
+        </div>
         <h1><a class="button2" href="<%= url%>"> <%= name %> </a></h1>
 
         <h3>Subject Area(s): <%= subject.join(', ').toUpperCase() %> </h3> 
 
         <h3>Keywords: <%= keywords.join(', ') %> </h3>
 
-        <a target="_blank" class="button2 center" href="<%= url%>" > Go to Site </a>
+        <a target="_blank" class="pageButton center" href="<%= url%>"> Go to Site </a>
 
     </div>
 

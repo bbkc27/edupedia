@@ -12,10 +12,13 @@ const ResourceSchema = new mongoose.Schema({
         required: true
     },
     subject: {
-        type: [String],
+        type: [String]
     },
     keywords: {
         type: [String]
+    },
+    favorite: {
+        type: Boolean
     }
 })
 

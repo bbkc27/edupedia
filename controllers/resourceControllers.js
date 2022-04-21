@@ -66,6 +66,18 @@ router.post('/new', (req, res) => {
     .then(() => res.redirect('/all'))
 })
 
+router.put('/:id', (req, res) => {
+    Resource.findOneAndUpdate(
+        {_id: req.params.id},
+        req.body,
+        {new: true}
+    )
+    .then((resource) => {
+        res.render('show', resource)
+    })
+    .catch(console.error);
+})
+
 router.delete('/:id', (req, res) => {
     Resource.findOneAndRemove({_id: req.params.id})
     .then(() => res.redirect('/all'))
