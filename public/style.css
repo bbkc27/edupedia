@@ -156,3 +156,7 @@ span{
     flex-direction: row;
     justify-content: space-around;
 }
+
+.center{
+    text-align: center;
+}
