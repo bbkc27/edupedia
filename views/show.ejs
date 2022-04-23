@@ -6,10 +6,17 @@
        
         <div class="links headerButtons">
                 <a class="pageButton" href="/<%=id%>/edit">Edit</a>
+                
                 <form action="/<%= id %>?_method=DELETE" method="POST">
                     <input type="submit" value="Delete" class="pageButton" />
-            
-                  </form>
+                </form>
+
+                <form action="/<%= id %>/favorite?_method=PUT" method="POST">
+                    <input type="submit" value="Favorite" class="pageButton <%= favorite ? "favorited" : " " %>" />
+
+                </form>
+
+                
         </div>
         <h1><a class="button2" href="<%= url%>"> <%= name %> </a></h1>
 

@@ -5,7 +5,6 @@ body{
     display: flex;
     overflow: visible;
     flex-direction: column;
-    justify-content: space-between;
     margin-left: -10px;
     margin-right: -10px;
     margin-bottom: 50px;
@@ -136,11 +135,9 @@ span{
 }
 
 .bottomInfo{
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin-top: 10%;
-    position: relative;
+    position: absolute;
+    bottom: 50px;
+    left: 20%;
 }
 
 .inputParent{
@@ -167,4 +164,8 @@ span{
     flex-direction: row;
     justify-content: flex-end;
     margin-top: 2%
+}
+
+.favorited{
+    background-color: red;
 }

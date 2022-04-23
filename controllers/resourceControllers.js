@@ -67,6 +67,7 @@ router.post('/new', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
+    console.log('here')
     Resource.findOneAndUpdate(
         {_id: req.params.id},
         req.body,
@@ -76,6 +77,17 @@ router.put('/:id', (req, res) => {
         res.render('show', resource)
     })
     .catch(console.error);
+})
+
+router.put('/:id/favorite', (req, res) => {
+    Resource.findById(req.params.id)
+    .then(resource => {
+        resource.favorite = !resource.favorite
+        Resource.findByIdAndUpdate(req.params.id, resource, {new: true})
+        .then(data => {
+            res.redirect(`/${req.params.id}/show`)
+        })
+    })
 })
 
 router.delete('/:id', (req, res) => {
