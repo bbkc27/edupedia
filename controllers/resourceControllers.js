@@ -32,6 +32,12 @@ router.get('/science', (req, res) => {
     .catch(console.error)   
 })
 
+router.get('/favorites', (req, res) => {
+    Resource.find({favorite: true})
+    .then((resources) => { res.render('search', {resources})})
+    .catch(console.error)
+})
+
 
 router.get('/new', (req, res) => {
     res.render('new')
