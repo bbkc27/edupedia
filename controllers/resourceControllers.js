@@ -73,7 +73,6 @@ router.post('/new', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-    console.log('here')
     Resource.findOneAndUpdate(
         {_id: req.params.id},
         req.body,

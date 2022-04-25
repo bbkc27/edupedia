@@ -167,5 +167,6 @@ span{
 }
 
 .favorited{
-    background-color: red;
+    background-color: rgb(131, 72, 151);
+    color: white;
 }
