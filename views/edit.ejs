@@ -2,9 +2,18 @@
 
 <h1>Edit Resource</h1>
 
+<div class="favoriteButton">
+<form action="/<%= id %>/edit?_method=PUT" method="POST">
+    <input type="submit" value="Favorite" class="pageButton  <%= favorite ? "favorited" : " " %>" />
+
+</form>
+</div>
+
 <form class="form" action="/<%=id %>/?_method=put" method="POST">
 
     <div class="inputParent">
+    
+
         <label for="name">Name:</label>
         <input type="text" name="name" value="<%= name %>" />
 
@@ -15,41 +24,42 @@
         <input type="text" name="subject" value="<%= subject %>">
     
         <label for="keywords">Keywords:</label>
+        <p> <%= keywords.includes("Elementary") %> </p>
 
     <div class="checklistItems">
-  
-        <input type="checkbox" name="keywords" value="Elementary" >
+
+        <input type="checkbox" name="keywords" value="Elementary" <%= keywords.includes("Elementary") ? "checked" : " " %> >
         <label for="elementary">Elementary</label>
 
-        <input type="checkbox" name="keywords" value="Middle School">
+        <input type="checkbox" name="keywords" value="Middle School" <%= keywords.includes("Middle School") ? "checked" : " " %>>
         <label for="middle-school">Middle School</label>
 
-        <input type="checkbox" name="keywords" value="High School">
+        <input type="checkbox" name="keywords" value="High School" <%= keywords.includes("High School") ? "checked" : " " %> >
         <label for="high-school">High School</label>
 
         <br> 
 
-        <input type="checkbox" name="keywords" value="Reading">
+        <input type="checkbox" name="keywords" value="Reading" <%= keywords.includes("Reading") ? "checked" : " " %>>
         <label for="reading">Reading</label>
 
-        <input type="checkbox" name="keywords" value="Writing">
+        <input type="checkbox" name="keywords" value="Writing" <%= keywords.includes("Writing") ? "checked" : " " %>>
         <label for="writing">Writing</label>
 
-        <input type="checkbox" name="keywords" value="Math">
+        <input type="checkbox" name="keywords" value="Math" <%= keywords.includes("Math") ? "checked" : " " %>>
         <label for="math">Math</label>
 
-        <input type="checkbox" name="keywords" value="Science">
+        <input type="checkbox" name="keywords" value="Science" <%= keywords.includes("Science") ? "checked" : " " %>>
         <label for="science">Science</label>
 
         <br>
 
-        <input type="checkbox" name="keywords" value="Art" >
+        <input type="checkbox" name="keywords" value="Art" <%= keywords.includes("Art") ? "checked" : " " %>>
         <label for="art">Art</label>
 
-        <input type="checkbox" name="keywords" value="World Languages">
+        <input type="checkbox" name="keywords" value="World Languages" <%= keywords.includes("World Languages") ? "checked" : " " %>>
         <label for="world-languages">World Languages</label>
 
-        <input type="checkbox" name="keywords" value="APs / SATs">
+        <input type="checkbox" name="keywords" value="APs / SATs" <%= keywords.includes("APs / SATs") ? "checked" : " " %>>
         <label for="apsat">APs / SATs</label>
 
     </div>

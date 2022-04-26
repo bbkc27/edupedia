@@ -72,6 +72,9 @@ router.post('/new', (req, res) => {
     .then(() => res.redirect('/all'))
 })
 
+
+
+
 router.put('/:id', (req, res) => {
     Resource.findOneAndUpdate(
         {_id: req.params.id},
@@ -91,6 +94,29 @@ router.put('/:id/favorite', (req, res) => {
         Resource.findByIdAndUpdate(req.params.id, resource, {new: true})
         .then(data => {
             res.redirect(`/${req.params.id}/show`)
+        })
+    })
+})
+
+router.put('/:id/edit', (req, res) => {
+    Resource.findById(req.params.id)
+    .then(resource => {
+        resource.favorite = !resource.favorite
+        Resource.findByIdAndUpdate(req.params.id, resource, {new: true})
+        .then(()=> {
+            res.redirect(`/${req.params.id}/edit`)
+        })
+    })
+})
+
+
+router.put('/:id/all', (req, res) => {
+    Resource.findById(req.params.id)
+    .then(resource => {
+        resource.favorite = !resource.favorite
+        Resource.findByIdAndUpdate(req.params.id, resource, {new: true})
+        .then(() => {
+            res.redirect('/all')
         })
     })
 })

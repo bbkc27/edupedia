@@ -170,3 +170,8 @@ span{
     background-color: rgb(131, 72, 151);
     color: white;
 }
+
+.favoriteButton {
+    display: flex;
+    justify-content: center;
+}
