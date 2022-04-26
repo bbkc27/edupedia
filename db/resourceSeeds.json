@@ -3,42 +3,42 @@
         "name": "NewsELA",
         "url": "https://newsela.com/",
         "subject": ["ela"],
-        "keywords": ["reading", "english", "writing", "elementary", "middle school", "high school"],
+        "keywords": ["Elementary", "Middle School", "High School", "Reading", "Writing"],
         "favorite": false
     },
     {
         "name": "ABCmouse",
         "url": "abcmouse.com",
         "subject": ["ela", "math", "science"],
-        "keywords": ["preschool", "prek", "art", "reading", "language arts"],
+        "keywords": ["PreK", "Elementary", "Art", "Reading", "Math"],
         "favorite": false
     },
     {
         "name": "Common Lit",
         "url": "https://commonlit.org",
         "subject": ["ela"],
-        "keywords": ["reading", "writing", "english", "middle school", "high school"],
+        "keywords": ["Reading", "Writing", "Middle School", "High School"],
         "favorite": false
     },
     {
         "name": "Khan Academy",
         "url": "https://khanacademy.org",
         "subject": ["ela", "math", "science"],
-        "keywords": ["elementary", "english", "middle school", "high school", "reading", "writing", "ap tests", "sat", "foreign language"],
+        "keywords": ["PreK", "Elementary", "Middle School", "High School", "Reading", "Writing", "Math", "Science", "APs / SAT", "World Language"],
         "favorite": false
     },
     {
         "name": "IXL",
         "url": "https://ixl.com",
         "subject": ["math", "ela", "science"],
-        "keywords": ["elementary", "middle school", "high school", "english", "math", "reading", "writing"],
+        "keywords": ["PreK", "Elementary", "Middle School", "High School", "Math", "Science", "Reading", "Writing", "APs / SATs"],
         "favorite": false
     },
     {
         "name": "MathGames",
         "url": "https://mathgames.com",
         "subject": ["math"],
-        "keywords": ["math", "elementary", "middle school"],
+        "keywords": ["PreK", "Elementary", "Middle School", "Math"],
         "favorite": false
     }
 ]

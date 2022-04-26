@@ -24,9 +24,11 @@
         <input type="text" name="subject" value="<%= subject %>">
     
         <label for="keywords">Keywords:</label>
-        <p> <%= keywords.includes("Elementary") %> </p>
 
     <div class="checklistItems">
+
+        <input type="checkbox" name="keywords" value="PreK" <%= keywords.includes("PreK") ? "checked" : " " %> >
+        <label for="prek">PreK</label>
 
         <input type="checkbox" name="keywords" value="Elementary" <%= keywords.includes("Elementary") ? "checked" : " " %> >
         <label for="elementary">Elementary</label>
@@ -36,8 +38,6 @@
 
         <input type="checkbox" name="keywords" value="High School" <%= keywords.includes("High School") ? "checked" : " " %> >
         <label for="high-school">High School</label>
-
-        <br> 
 
         <input type="checkbox" name="keywords" value="Reading" <%= keywords.includes("Reading") ? "checked" : " " %>>
         <label for="reading">Reading</label>
@@ -51,10 +51,9 @@
         <input type="checkbox" name="keywords" value="Science" <%= keywords.includes("Science") ? "checked" : " " %>>
         <label for="science">Science</label>
 
-        <br>
-
         <input type="checkbox" name="keywords" value="Art" <%= keywords.includes("Art") ? "checked" : " " %>>
         <label for="art">Art</label>
+
 
         <input type="checkbox" name="keywords" value="World Languages" <%= keywords.includes("World Languages") ? "checked" : " " %>>
         <label for="world-languages">World Languages</label>
