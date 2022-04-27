@@ -1,11 +1,21 @@
 
 const express = require('express')
 const Resource = require('../models/resource-model')
+const Login = require('../models/login-model')
 
 const router = express.Router()
 
 router.get('/', (req, res) => {
     res.render('index')
+})
+
+router.get('/login', (req, res) => {
+    res.render('logIn')
+})
+
+
+router.get('/signup', (req, res) =>{
+    res.render('signUp')
 })
 
 router.get('/all', (req, res) => {
@@ -73,7 +83,45 @@ router.post('/new', (req, res) => {
 })
 
 
+router.post('/signup', async (req, res) => {
 
+    try {
+        const username = req.body.username;
+        const password = req.body.password;
+        const oldUser = await Login.findOne({username: username});
+
+        if(oldUser){
+            res.redirect("/signup")
+        }
+
+        const user = await Login.create({username: username, password: password});
+        res.redirect('/login');
+    } catch (err){
+        console.log(err);
+    }
+
+})
+
+
+router.post('/login', async (req, res) => {
+    try{
+        const username = req.body.username;
+        const password = req.body.password;
+
+        if (!(username && password)){
+            res.redirect("/login")
+        }
+
+        const user = await Login.findOne({username: username, password: password});
+
+        if (user) {
+            res.redirect("/favorites")
+        }
+        res.redirect("/login")
+    } catch (err) {
+        console.log(err);
+    }
+})
 
 router.put('/:id', (req, res) => {
     Resource.findOneAndUpdate(

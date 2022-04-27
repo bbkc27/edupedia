@@ -149,6 +149,16 @@ span{
     margin-top: none;
 }
 
+.loginInput{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-top: none;
+}
+
 .checklistItem{
     display: flex;
     flex-direction: row;
