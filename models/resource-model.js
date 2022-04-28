@@ -1,5 +1,7 @@
 
+const { Schema } = require('../db/connection');
 const mongoose = require('../db/connection');
+const Login = require('./login-model')
 
 const ResourceSchema = new mongoose.Schema({
 
@@ -19,6 +21,9 @@ const ResourceSchema = new mongoose.Schema({
     },
     favorite: {
         type: Boolean
+    },
+    Login: {
+        type: Schema.Types.ObjectId, ref: "Login"
     }
 })
 

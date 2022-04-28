@@ -1,5 +1,9 @@
 
+//Harold iD: 6269e4dc13307b7d1efc2ecd
+
 const express = require('express')
+const session = require('express-session')
+const passport = require('passport')
 const Resource = require('../models/resource-model')
 const Login = require('../models/login-model')
 
@@ -9,8 +13,8 @@ router.get('/', (req, res) => {
     res.render('index')
 })
 
-router.get('/login', (req, res) => {
-    res.render('logIn')
+router.get('/auth', (req, res) => {
+    res.render('login')
 })
 
 
@@ -20,27 +24,32 @@ router.get('/signup', (req, res) =>{
 
 router.get('/all', (req, res) => {
     Resource.find({})
+    .sort("favorite")
     .then((resources) => res.render('search',{resources}))
     .catch(console.error)
 })
 
 router.get('/ela', (req, res) => {
     Resource.find({subject: "ela"})
+    .sort("favorite")
     .then((resources) => res.render('search', {resources}))
     .catch(console.error)
 })
 
 router.get('/math', (req, res) => {
     Resource.find({subject: "math"})
+    .sort("favorite")
     .then((resources) => res.render('search', {resources}))
     .catch(console.error)
 })
 
 router.get('/science', (req, res) => {
     Resource.find({subject: "science"})
+    .sort("favorite")
     .then((resources) => res.render('search', {resources}))    
     .catch(console.error)   
 })
+
 
 router.get('/favorites', (req, res) => {
     Resource.find({favorite: true})
@@ -78,7 +87,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.post('/new', (req, res) => {
-    Resource.create(req.body)
+    Resource.create({...req.body, Login:"6269e4dc13307b7d1efc2ecd"})
     .then(() => res.redirect('/all'))
 })
 
@@ -95,7 +104,7 @@ router.post('/signup', async (req, res) => {
         }
 
         const user = await Login.create({username: username, password: password});
-        res.redirect('/login');
+        res.redirect('/auth');
     } catch (err){
         console.log(err);
     }
@@ -103,21 +112,25 @@ router.post('/signup', async (req, res) => {
 })
 
 
-router.post('/login', async (req, res) => {
+router.post('/auth', async (req, res) => {
     try{
         const username = req.body.username;
         const password = req.body.password;
 
         if (!(username && password)){
-            res.redirect("/login")
+            res.redirect("/auth")
         }
 
         const user = await Login.findOne({username: username, password: password});
 
         if (user) {
-            res.redirect("/favorites")
+            passport.authenticate("local")(req, res, function(){
+                res.redirect("/favorites")
+            });
+
+        } else {
+        res.redirect("/auth")
         }
-        res.redirect("/login")
     } catch (err) {
         console.log(err);
     }
@@ -136,14 +149,17 @@ router.put('/:id', (req, res) => {
 })
 
 router.put('/:id/favorite', (req, res) => {
-    Resource.findById(req.params.id)
-    .then(resource => {
-        resource.favorite = !resource.favorite
-        Resource.findByIdAndUpdate(req.params.id, resource, {new: true})
-        .then(data => {
-            res.redirect(`/${req.params.id}/show`)
+    if (req.session.loggedIn){
+        res.send("saved to favorites")
+        Resource.findById(req.params.id)
+        .then(resource => {
+            resource.favorite = !resource.favorite
+            Resource.findByIdAndUpdate(req.params.id, resource, {new: true})
+            .then(data => {
+                res.redirect(`/${req.params.id}/show`)
+            })
         })
-    })
+    }
 })
 
 router.put('/:id/edit', (req, res) => {
