@@ -1,9 +1,8 @@
 
-//Harold iD: 6269e4dc13307b7d1efc2ecd
 
 const express = require('express')
-const session = require('express-session')
 const passport = require('passport')
+const connectEnsureLogin = require('connect-ensure-login')
 const Resource = require('../models/resource-model')
 const Login = require('../models/login-model')
 
@@ -51,7 +50,7 @@ router.get('/science', (req, res) => {
 })
 
 
-router.get('/favorites', (req, res) => {
+router.get('/favorites', connectEnsureLogin.ensureLoggedIn('/auth'), (req, res) => {
     Resource.find({favorite: true})
     .then((resources) => { res.render('search', {resources})})
     .catch(console.error)
@@ -87,54 +86,36 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.post('/new', (req, res) => {
-    Resource.create({...req.body, Login:"6269e4dc13307b7d1efc2ecd"})
+    Resource.create(req.body)
     .then(() => res.redirect('/all'))
 })
 
 
 router.post('/signup', async (req, res) => {
-
-    try {
-        const username = req.body.username;
-        const password = req.body.password;
-        const oldUser = await Login.findOne({username: username});
-
-        if(oldUser){
-            res.redirect("/signup")
+    console.log(req.body)
+    Login.register(new Login({username: req.body.username}), req.body.password, (err, user) => {
+        if(err){
+            console.log(err);
+            return res.render("signUp");
         }
-
-        const user = await Login.create({username: username, password: password});
-        res.redirect('/auth');
-    } catch (err){
-        console.log(err);
-    }
+        passport.authenticate("local")(req, res, () => {
+            res.redirect("/favorites");
+        });
+    });
 
 })
 
 
-router.post('/auth', async (req, res) => {
-    try{
-        const username = req.body.username;
-        const password = req.body.password;
+router.post('/auth', passport.authenticate('local', {
+    failureRedirect: '/auth',
+    successRedirect: '/favorites',
+  }),
+  (req, res) => {
+    console.log(req.user);
+  })
 
-        if (!(username && password)){
-            res.redirect("/auth")
-        }
 
-        const user = await Login.findOne({username: username, password: password});
-
-        if (user) {
-            passport.authenticate("local")(req, res, function(){
-                res.redirect("/favorites")
-            });
-
-        } else {
-        res.redirect("/auth")
-        }
-    } catch (err) {
-        console.log(err);
-    }
-})
+  router.post('/logout', )
 
 router.put('/:id', (req, res) => {
     Resource.findOneAndUpdate(
@@ -149,6 +130,7 @@ router.put('/:id', (req, res) => {
 })
 
 router.put('/:id/favorite', (req, res) => {
+    console.log(req.user._id)
     if (req.session.loggedIn){
         res.send("saved to favorites")
         Resource.findById(req.params.id)

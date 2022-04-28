@@ -1,6 +1,5 @@
 const mongoose = require('../db/connection');
-
-let passportLocalMongoose = require('passport-local-mongoose');
+const passportLocalMongoose = require('passport-local-mongoose');
 
 const LoginSchema = new mongoose.Schema({
 
@@ -11,7 +10,6 @@ const LoginSchema = new mongoose.Schema({
     },
     password: {
         type: String, 
-        required: true
     },
     favorites: {
         type: Array
