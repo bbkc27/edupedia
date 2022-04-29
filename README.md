@@ -18,8 +18,8 @@ Edupedia is an application built for teachers. Teachers can use the tool to keep
 ___________________________
 
 ### Languages Used
-- HTML5 (browser rendered home page)
-- EJS (server rendered state and activity pages)
+
+- EJS 
 - CSS3
 - JavaScript
 - NodeJS
