@@ -48,6 +48,5 @@ ___________________________
 
 ### Future Inclusions
 
-- Have the username of the current signed-in user to display instead of the log in button in the header
+- Have the username of the signed-in user display instead of the log in button in the header and only display log out option when a user is logged in
 - Make the design more mobile-friendly 
-- Integrate 2-factor authentication
