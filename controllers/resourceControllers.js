@@ -26,28 +26,28 @@ router.get('/signup', (req, res) =>{
 
 router.get('/all', (req, res) => {
     Resource.find({})
-    .sort("favorite")
+    .sort({"favorite": 'desc'})
     .then((resources) => res.render('search',{resources}))
     .catch(console.error)
 })
 
 router.get('/ela', (req, res) => {
     Resource.find({subject: "ela"})
-    .sort("favorite")
+    .sort({"favorite": 'desc'})    
     .then((resources) => res.render('search', {resources}))
     .catch(console.error)
 })
 
 router.get('/math', (req, res) => {
     Resource.find({subject: "math"})
-    .sort("favorite")
+    .sort({"favorite": 'desc'})
     .then((resources) => res.render('search', {resources}))
     .catch(console.error)
 })
 
 router.get('/science', (req, res) => {
     Resource.find({subject: "science"})
-    .sort("favorite")
+    .sort({"favorite": 'desc'})
     .then((resources) => res.render('search', {resources}))    
     .catch(console.error)   
 })
