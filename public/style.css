@@ -127,7 +127,7 @@ span{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 30px 0px;
+    margin: 125px 0px;
 }
 
 .input{
@@ -188,4 +188,8 @@ span{
 
 .hide{
     display: none;
+}
+
+.logOut{
+    margin: 20%;
 }

@@ -16,6 +16,9 @@ router.get('/auth', (req, res) => {
     res.render('logIn')
 })
 
+router.get('/logout', (req, res) => {
+    res.render('logout')
+})
 
 router.get('/signup', (req, res) =>{
     res.render('signUp')
@@ -115,7 +118,10 @@ router.post('/auth', passport.authenticate('local', {
   })
 
 
-  router.post('/logout', )
+router.post('/logout', function (req, res){
+      req.logout();
+      res.redirect('/auth')
+  });
 
 router.put('/:id', (req, res) => {
     Resource.findOneAndUpdate(
@@ -130,18 +136,15 @@ router.put('/:id', (req, res) => {
 })
 
 router.put('/:id/favorite', (req, res) => {
-    console.log(req.user._id)
-    if (req.session.loggedIn){
-        res.send("saved to favorites")
-        Resource.findById(req.params.id)
-        .then(resource => {
-            resource.favorite = !resource.favorite
-            Resource.findByIdAndUpdate(req.params.id, resource, {new: true})
-            .then(data => {
-                res.redirect(`/${req.params.id}/show`)
-            })
+    Resource.findById(req.params.id)
+    .then(resource => {
+        resource.favorite = !resource.favorite
+        Resource.findByIdAndUpdate(req.params.id, resource, {new: true})
+        .then(data => {
+        res.redirect(`/${req.params.id}/show`)
         })
-    }
+    })
+    
 })
 
 router.put('/:id/edit', (req, res) => {
